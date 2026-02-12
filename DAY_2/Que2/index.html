@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Navigation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+    </header>
+    
+    <!-- Main website navigation - USE <nav> -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <article>
+            <h2>Article Title</h2>
+            
+            <!-- Article navigation - USE <nav> -->
+            <nav class="article-nav">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#section1">Section 1</a></li>
+                    <li><a href="#section2">Section 2</a></li>
+                    <li><a href="#section3">Section 3</a></li>
+                </ul>
+            </nav>
+            
+            <section id="section1">
+                <h3>Section 1</h3>
+                <p>Content here.</p>
+            </section>
+            
+            <section id="section2">
+                <h3>Section 2</h3>
+                <p>Content here.</p>
+            </section>
+            
+            <section id="section3">
+                <h3>Section 3</h3>
+                <p>Content here.</p>
+            </section>
+            
+            <!-- Related links - AVOID <nav> -->
+            <div class="related-links">
+                <h3>Related Articles</h3>
+                <ul>
+                    <li><a href="#">Article 1</a></li>
+                    <li><a href="#">Article 2</a></li>
+                </ul>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+</body>
+</html>

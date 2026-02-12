@@ -1,0 +1,65 @@
+hello everyone
+start working on the 5 below assignments as we have discussed yesterday
+ 
+1) Interactive To-Do List 
+Features
+* Add a task
+* Mark task as complete
+* Delete a task
+ 
+Concepts Covered
+* `input`, `button`, `ul`, `li`
+* CSS hover & active states
+* SCSS variables (`$primary-color`)
+* JS events (`click`, `keypress`)
+
+2)Light / Dark Theme Toggle
+Features
+* Button to switch theme
+* Background & text color change
+* Smooth transitions
+ 
+Concepts Covered
+* CSS transitions
+* SCSS color management
+* `classList.toggle()`
+ 
+ 
+3) Simple Calculator
+Features
+* Add, subtract, multiply, divide
+* Clear screen
+ 
+Concepts Covered
+* CSS Grid / Flexbox
+* JS operators
+* Event handling
+ 
+ 
+4)Form with Validation
+Features
+* Name, Email, Password fields
+* Required field check
+* Error messages
+ 
+Concepts Covered
+ 
+* HTML5 form elements
+* CSS error styling
+* JS conditional statements
+ 
+ 
+ 
+5) Image Gallery with Modal Popup
+Features
+* Thumbnail images
+* Click to open full image
+* Close modal
+Concepts Covered
+* CSS positioning
+* SCSS reusable styles
+* JS DOM selection
+
+
+
+

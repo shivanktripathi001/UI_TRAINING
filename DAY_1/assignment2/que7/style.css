@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 50px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,23 @@
+// SCSS Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+
+// Apply variables
+body {
+    background-color: $primary-color;
+    color: $text-color;
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+h1 {
+    color: $secondary-color;
+    font-size: 36px;
+}
+
+p {
+    color: $text-color;
+    font-size: 18px;
+    line-height: 1.6;
+}

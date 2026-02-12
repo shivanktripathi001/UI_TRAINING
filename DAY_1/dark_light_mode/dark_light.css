@@ -1,0 +1,32 @@
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+body.dark {
+    background-color: #333;
+    color: white;
+}
+
+.main_container {
+    text-align: center;
+    padding: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

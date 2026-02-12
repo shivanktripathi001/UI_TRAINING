@@ -1,0 +1,46 @@
+$card-bg: white;
+$header-bg: #007bff;
+$footer-bg: #f4f4f4;
+$text-color: #333;
+$spacing: 20px;
+
+.card {
+    background-color: $card-bg;
+    width: 300px;
+    margin: 50px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    .card-header {
+        background-color: $header-bg;
+        color: white;
+        padding: $spacing;
+
+        h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+    }
+
+    .card-content {
+        padding: $spacing;
+        color: $text-color;
+
+        p {
+            margin: 0;
+            line-height: 1.5;
+        }
+    }
+
+    .card-footer {
+        background-color: $footer-bg;
+        padding: $spacing;
+
+        button {
+            background-color: $header-bg;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

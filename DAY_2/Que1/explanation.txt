@@ -1,0 +1,50 @@
+SEMANTIC TAGS EXPLANATION
+==========================
+
+1. <header>
+   - Purpose: Contains introductory content, site title, logo
+   - Why: Screen readers identify it as page header
+   - Without: Loses meaning, harder for accessibility tools
+
+2. <nav>
+   - Purpose: Contains navigation links
+   - Why: Screen readers can skip to/from navigation easily
+   - Without: Users can't quickly navigate the site structure
+
+3. <main>
+   - Purpose: Contains the primary content of the page
+   - Why: Helps screen readers jump directly to main content
+   - Without: No clear indication of where main content starts
+
+4. <section>
+   - Purpose: Groups related content together
+   - Why: Creates logical content divisions
+   - Without: Content structure becomes unclear
+
+5. <footer>
+   - Purpose: Contains footer information, copyright, links
+   - Why: Screen readers identify it as page footer
+   - Without: No clear end-of-page marker
+
+PROBLEMS WITH USING <div> EVERYWHERE:
+======================================
+
+1. Accessibility Issues
+   - Screen readers can't identify page structure
+   - Difficult for visually impaired users to navigate
+
+2. SEO Problems
+   - Search engines can't understand content hierarchy
+   - Lower search rankings
+
+3. Code Readability
+   - Developers can't quickly understand page structure
+   - Harder to maintain code
+
+4. Browser Features
+   - Some browser features rely on semantic tags
+   - Reader mode may not work properly
+
+5. Standards Compliance
+   - Not following HTML5 best practices
+   - Poor code quality

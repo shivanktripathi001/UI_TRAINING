@@ -1,0 +1,17 @@
+.box {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.info-box {
+    @extend .box;
+    background-color: #17a2b8;
+    color: white;
+}
+
+.warning-box {
+    @extend .box;
+    background-color: #ffc107;
+    color: black;
+}

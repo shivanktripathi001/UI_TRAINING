@@ -1,0 +1,34 @@
+.card {
+  background-color: white;
+  width: 300px;
+  margin: 50px auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.card .card-header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+}
+.card .card-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+.card .card-content {
+  padding: 20px;
+  color: #333;
+}
+.card .card-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+.card .card-footer {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+.card .card-footer button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

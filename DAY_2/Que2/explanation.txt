@@ -1,0 +1,68 @@
+NAVIGATION USAGE JUSTIFICATION
+==============================
+
+WHERE TO USE <nav>:
+===================
+
+1. Main Website Navigation (Top of page)
+   ✓ USE <nav>
+   Reason: Primary site navigation - major sections of website
+   Purpose: Helps users navigate between main pages
+   Accessibility: Screen readers identify as main navigation
+
+2. Article Table of Contents
+   ✓ USE <nav>
+   Reason: Major navigation block within article
+   Purpose: Helps users jump to different sections
+   Accessibility: Screen readers can skip to content sections
+
+
+WHERE TO AVOID <nav>:
+=====================
+
+1. Related Links Section
+   ✗ AVOID <nav>
+   Reason: Not a major navigation block
+   Use Instead: <div> or <aside>
+   Why: These are supplementary links, not primary navigation
+
+2. Social Media Links
+   ✗ AVOID <nav>
+   Reason: Not site navigation
+   Use Instead: <div> in footer
+
+3. Pagination Links
+   ✗ AVOID <nav>
+   Reason: Context-specific, not major navigation
+   Use Instead: <div>
+
+
+GENERAL RULE:
+=============
+
+USE <nav> when:
+- Links represent major navigation sections
+- Users need it to navigate the site/document
+- It's a primary way to move around content
+
+AVOID <nav> when:
+- Links are supplementary or related content
+- Links are contextual (like "read more")
+- Links are for social media or external sites
+- It's just a group of links without navigation purpose
+
+
+BENEFITS OF PROPER <nav> USAGE:
+================================
+
+1. Accessibility
+   - Screen readers can jump between nav sections
+   - Users can skip navigation easily
+
+2. SEO
+   - Search engines understand site structure
+   - Better indexing of important pages
+
+3. Code Clarity
+   - Developers understand page structure
+   - Easier maintenance

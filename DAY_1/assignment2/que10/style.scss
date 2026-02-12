@@ -1,0 +1,44 @@
+// Variables
+$primary-color: #333;
+$secondary-color: #007bff;
+$text-color: white;
+$padding: 20px;
+
+// Mixin
+@mixin section-style($bg-color) {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: $padding;
+    text-align: center;
+}
+
+// Nesting
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    header {
+        @include section-style($secondary-color);
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    main {
+        padding: $padding;
+        min-height: 400px;
+
+        h2 {
+            color: $primary-color;
+        }
+    }
+
+    footer {
+        @include section-style($primary-color);
+
+        p {
+            margin: 0;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.box, .warning-box, .info-box {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.info-box {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.warning-box {
+  background-color: #ffc107;
+  color: black;
+}/*# sourceMappingURL=style.css.map */

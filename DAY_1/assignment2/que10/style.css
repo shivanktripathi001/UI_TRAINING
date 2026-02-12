@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+body header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+body header h1 {
+  margin: 0;
+}
+body main {
+  padding: 20px;
+  min-height: 400px;
+}
+body main h2 {
+  color: #333;
+}
+body footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+body footer p {
+  margin: 0;
+}/*# sourceMappingURL=style.css.map */
