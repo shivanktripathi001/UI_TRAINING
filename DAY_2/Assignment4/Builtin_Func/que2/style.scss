@@ -1,0 +1,23 @@
+.w-25 {
+    width: percentage(0.25);
+}
+
+.w-50 {
+    width: percentage(0.5);
+}
+
+.w-75 {
+    width: percentage(0.75);
+}
+
+.w-100 {
+    width: percentage(1);
+}
+
+[class^="w-"] {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+}

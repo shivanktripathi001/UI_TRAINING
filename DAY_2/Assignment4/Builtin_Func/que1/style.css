@@ -1,0 +1,27 @@
+.color-base {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.color-lighter {
+  background-color: #66b0ff;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.color-darker {
+  background-color: #004a99;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.color-mixed {
+  background-color: #80bdff;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}

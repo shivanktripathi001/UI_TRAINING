@@ -1,0 +1,29 @@
+$base-color: #007bff;
+
+.color-base {
+    background-color: $base-color;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}
+
+.color-lighter {
+    background-color: lighten($base-color, 20%);
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}
+
+.color-darker {
+    background-color: darken($base-color, 15%);
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}
+
+.color-mixed {
+    background-color: mix($base-color, white, 50%);
+    color: white;
+    padding: 20px;
+    margin: 10px;
+}

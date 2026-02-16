@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React 2-Week Mastery Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #2a2a3a;
+    --accent1: #61dafb;
+    --accent2: #ff6b6b;
+    --accent3: #a8ff78;
+    --accent4: #f7c59f;
+    --text: #e8e8f0;
+    --muted: #666680;
+    --week1: #61dafb;
+    --week2: #ff6b6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(97,218,251,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255,107,107,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(168,255,120,0.02) 0%, transparent 60%);
+    animation: drift 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-2%, -2%) rotate(1deg); }
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 0 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .react-logo {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+    animation: spin 20s linear infinite;
+    display: inline-block;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent1);
+    border: 1px solid rgba(97,218,251,0.3);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    background: rgba(97,218,251,0.05);
+  }
+
+  h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  h1 span.react { color: var(--accent1); }
+  h1 span.mastery { 
+    background: linear-gradient(135deg, var(--accent2), var(--accent4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 48px;
+  }
+
+  /* STATS BAR */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .stat:nth-child(1) .stat-num { color: var(--accent1); }
+  .stat:nth-child(2) .stat-num { color: var(--accent3); }
+  .stat:nth-child(3) .stat-num { color: var(--accent2); }
+  .stat:nth-child(4) .stat-num { color: var(--accent4); }
+
+  /* WEEK SECTIONS */
+  .week-section {
+    margin-bottom: 60px;
+  }
+
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .week-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .week-1 .week-tag { background: rgba(97,218,251,0.12); color: var(--week1); border: 1px solid rgba(97,218,251,0.2); }
+  .week-2 .week-tag { background: rgba(255,107,107,0.12); color: var(--week2); border: 1px solid rgba(255,107,107,0.2); }
+
+  .week-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .week-desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* DAYS GRID */
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  /* DAY CARD */
+  .day-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .week-1 .day-card:hover { border-color: rgba(97,218,251,0.4); box-shadow: 0 12px 40px rgba(97,218,251,0.08); }
+  .week-2 .day-card:hover { border-color: rgba(255,107,107,0.4); box-shadow: 0 12px 40px rgba(255,107,107,0.08); }
+
+  .day-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .week-1 .day-card::before { background: linear-gradient(90deg, transparent, var(--accent1), transparent); }
+  .week-2 .day-card::before { background: linear-gradient(90deg, transparent, var(--accent2), transparent); }
+
+  .day-card:hover::before { opacity: 1; }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .day-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--muted);
+  }
+
+  .day-num span {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.5px;
+  }
+
+  .week-1 .day-num span { color: var(--accent1); }
+  .week-2 .day-num span { color: var(--accent2); }
+
+  .topic-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .day-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+
+  .topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .topic-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #b0b0c8;
+    line-height: 1.4;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .topic-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .week-1 .topic-dot { background: var(--accent1); }
+  .week-2 .topic-dot { background: var(--accent2); }
+
+  /* WEEKEND CARD */
+  .weekend-card {
+    background: linear-gradient(135deg, #13131e 0%, #1a1a28 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .weekend-emoji {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .weekend-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--accent4);
+  }
+
+  .weekend-text span {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* TIPS SECTION */
+  .tips-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 60px;
+  }
+
+  .tips-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .tips-section h3 span { color: var(--accent3); }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .tip {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+
+  .tip-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+
+  .tip p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .tip strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* PROGRESS TRACKER */
+  .progress-section {
+    text-align: center;
+    padding: 40px 0 60px;
+  }
+
+  .progress-bar-outer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    height: 8px;
+    max-width: 400px;
+    margin: 16px auto;
+    overflow: hidden;
+  }
+
+  .progress-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    border-radius: 100px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .progress-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  footer span { color: var(--accent1); }
+
+  /* Stagger animation */
+  .day-card {
+    opacity: 0;
+    animation: fadeUp 0.5s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .days-grid .day-card:nth-child(1) { animation-delay: 0.05s; }
+  .days-grid .day-card:nth-child(2) { animation-delay: 0.1s; }
+  .days-grid .day-card:nth-child(3) { animation-delay: 0.15s; }
+  .days-grid .day-card:nth-child(4) { animation-delay: 0.2s; }
+  .days-grid .day-card:nth-child(5) { animation-delay: 0.25s; }
+  .days-grid .day-card:nth-child(6) { animation-delay: 0.3s; }
+
+  @media (max-width: 600px) {
+    .week-desc { display: none; }
+    .days-grid { grid-template-columns: 1fr; }
+    .stats { gap: 20px; }
+    h1 { letter-spacing: -1px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <span class="react-logo">⚛️</span>
+    <div class="badge">// 2-Week Intensive Roadmap</div>
+    <h1>Learn <span class="react">React</span><br><span class="mastery">From Zero to Pro</span></h1>
+    <p class="subtitle">Designed for developers with solid JavaScript knowledge</p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">14</span>
+        <span class="stat-label">Days</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">60+</span>
+        <span class="stat-label">Topics</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">4-5</span>
+        <span class="stat-label">Topics / Day</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Projects</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- WEEK 1 -->
+  <section class="week-section week-1">
+    <div class="week-header">
+      <div class="week-tag">Week 01</div>
+      <div class="week-title">Core Foundations</div>
+      <div class="week-desc">Day 01 → Day 07</div>
+    </div>
+
+    <div class="days-grid">
+
+      <!-- Day 1 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>01</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">React Fundamentals & Setup</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>What is React & Why React?</div>
+          <div class="topic-item"><div class="topic-dot"></div>Setting up with Vite / CRA</div>
+          <div class="topic-item"><div class="topic-dot"></div>JSX — Syntax & Rules</div>
+          <div class="topic-item"><div class="topic-dot"></div>Rendering Elements to the DOM</div>
+          <div class="topic-item"><div class="topic-dot"></div>React DevTools Setup</div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>02</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">Components & Props</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>Functional Components</div>
+          <div class="topic-item"><div class="topic-dot"></div>Props — Passing & Receiving</div>
+          <div class="topic-item"><div class="topic-dot"></div>Props Destructuring</div>
+          <div class="topic-item"><div class="topic-dot"></div>Default Props & PropTypes</div>
+          <div class="topic-item"><div class="topic-dot"></div>Component Composition</div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>03</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">State & Event Handling</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>useState Hook — Basics</div>
+          <div class="topic-item"><div class="topic-dot"></div>State Updates & Re-renders</div>
+          <div class="topic-item"><div class="topic-dot"></div>Handling Events (onClick, onChange)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Controlled Inputs</div>
+          <div class="topic-item"><div class="topic-dot"></div>Lifting State Up</div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>04</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">Rendering & Lists</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>Conditional Rendering (&&, ternary)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Rendering Lists with .map()</div>
+          <div class="topic-item"><div class="topic-dot"></div>Keys — Why They Matter</div>
+          <div class="topic-item"><div class="topic-dot"></div>Fragments (&lt;&gt;&lt;/&gt;)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Dynamic Class Names</div>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>05</span></div>
+          <div class="topic-count">4 topics</div>
+        </div>
+        <div class="day-title">useEffect & Side Effects</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>useEffect Hook — Basics</div>
+          <div class="topic-item"><div class="topic-dot"></div>Dependency Array — [], [deps], none</div>
+          <div class="topic-item"><div class="topic-dot"></div>Cleanup Functions</div>
+          <div class="topic-item"><div class="topic-dot"></div>Fetching Data with useEffect</div>
+        </div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>06</span></div>
+          <div class="topic-count">4 topics</div>
+        </div>
+        <div class="day-title">Forms & Styling</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>Controlled vs Uncontrolled Forms</div>
+          <div class="topic-item"><div class="topic-dot"></div>Form Submission Handling</div>
+          <div class="topic-item"><div class="topic-dot"></div>CSS Modules</div>
+          <div class="topic-item"><div class="topic-dot"></div>Inline Styles & Tailwind CSS Intro</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Weekend -->
+    <div style="margin-top: 16px;">
+      <div class="weekend-card">
+        <div class="weekend-emoji">🏗️</div>
+        <div class="weekend-text">
+          <strong>Weekend 1 — Build: Todo App</strong>
+          <span>Apply Days 1–6: components, state, props, forms, list rendering</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div style="margin-top: 16px;">
+      <div class="day-card" style="opacity:1; animation: none;">
+        <div class="day-header">
+          <div class="day-num">DAY <span>07</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">Component Patterns & More Hooks</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>useRef — DOM Access & Persisting Values</div>
+          <div class="topic-item"><div class="topic-dot"></div>useMemo — Memoizing Values</div>
+          <div class="topic-item"><div class="topic-dot"></div>useCallback — Memoizing Functions</div>
+          <div class="topic-item"><div class="topic-dot"></div>children Prop & Slot Pattern</div>
+          <div class="topic-item"><div class="topic-dot"></div>Prop Drilling Problem</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEK 2 -->
+  <section class="week-section week-2">
+    <div class="week-header">
+      <div class="week-tag">Week 02</div>
+      <div class="week-title">Advanced Concepts</div>
+      <div class="week-desc">Day 08 → Day 14</div>
+    </div>
+
+    <div class="days-grid">
+
+      <!-- Day 8 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>08</span></div>
+          <div class="topic-count">4 topics</div>
+        </div>
+        <div class="day-title">Context API & Global State</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>createContext & Provider</div>
+          <div class="topic-item"><div class="topic-dot"></div>useContext Hook</div>
+          <div class="topic-item"><div class="topic-dot"></div>Context with useState (Global State)</div>
+          <div class="topic-item"><div class="topic-dot"></div>When to Use Context vs Props</div>
+        </div>
+      </div>
+
+      <!-- Day 9 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>09</span></div>
+          <div class="topic-count">4 topics</div>
+        </div>
+        <div class="day-title">useReducer & State Management</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>useReducer — Actions & Dispatch</div>
+          <div class="topic-item"><div class="topic-dot"></div>useReducer + useContext Pattern</div>
+          <div class="topic-item"><div class="topic-dot"></div>Custom Hooks — Building Your Own</div>
+          <div class="topic-item"><div class="topic-dot"></div>Zustand (State Library Intro)</div>
+        </div>
+      </div>
+
+      <!-- Day 10 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>10</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">React Router (Navigation)</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>React Router v6 Setup</div>
+          <div class="topic-item"><div class="topic-dot"></div>BrowserRouter, Routes, Route</div>
+          <div class="topic-item"><div class="topic-dot"></div>Link & NavLink Components</div>
+          <div class="topic-item"><div class="topic-dot"></div>useNavigate & useParams</div>
+          <div class="topic-item"><div class="topic-dot"></div>Nested Routes & Layouts</div>
+        </div>
+      </div>
+
+      <!-- Day 11 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>11</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">API Integration & Async</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>Fetching with fetch / axios</div>
+          <div class="topic-item"><div class="topic-dot"></div>Loading & Error States</div>
+          <div class="topic-item"><div class="topic-dot"></div>Async/Await in useEffect</div>
+          <div class="topic-item"><div class="topic-dot"></div>TanStack Query (React Query) Intro</div>
+          <div class="topic-item"><div class="topic-dot"></div>Abort Controllers / Cleanup</div>
+        </div>
+      </div>
+
+      <!-- Day 12 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>12</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">Performance & Optimization</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>React.memo — Preventing Re-renders</div>
+          <div class="topic-item"><div class="topic-dot"></div>Lazy Loading & React.lazy</div>
+          <div class="topic-item"><div class="topic-dot"></div>Suspense Boundaries</div>
+          <div class="topic-item"><div class="topic-dot"></div>Code Splitting</div>
+          <div class="topic-item"><div class="topic-dot"></div>React Profiler Tool</div>
+        </div>
+      </div>
+
+      <!-- Day 13 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num">DAY <span>13</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">Error Handling & Portals</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>Error Boundaries</div>
+          <div class="topic-item"><div class="topic-dot"></div>React Portals (Modals/Tooltips)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Higher-Order Components (HOC)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Render Props Pattern</div>
+          <div class="topic-item"><div class="topic-dot"></div>Compound Components Pattern</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Weekend 2 -->
+    <div style="margin-top: 16px;">
+      <div class="weekend-card">
+        <div class="weekend-emoji">🚀</div>
+        <div class="weekend-text">
+          <strong>Weekend 2 — Build: Full App (Weather / Movie DB)</strong>
+          <span>Routing, API calls, global state, performance, custom hooks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 14 -->
+    <div style="margin-top: 16px;">
+      <div class="day-card" style="opacity:1; animation: none; border-color: rgba(255,107,107,0.3);">
+        <div class="day-header">
+          <div class="day-num">DAY <span>14</span></div>
+          <div class="topic-count">5 topics</div>
+        </div>
+        <div class="day-title">Production & Final Review</div>
+        <div class="topics-list">
+          <div class="topic-item"><div class="topic-dot"></div>Testing with React Testing Library</div>
+          <div class="topic-item"><div class="topic-dot"></div>TypeScript + React (TSX basics)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Build & Deployment (Vercel/Netlify)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Environment Variables (.env)</div>
+          <div class="topic-item"><div class="topic-dot"></div>Next Steps — Next.js, Redux Toolkit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS SECTION -->
+  <div class="tips-section">
+    <h3>⚡ <span>Pro Study Tips</span></h3>
+    <div class="tips-grid">
+      <div class="tip">
+        <span class="tip-icon">💻</span>
+        <strong>Code Every Day</strong>
+        <p>Don't just read. Type every example yourself. Muscle memory builds faster this way.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">🧪</span>
+        <strong>Break Things</strong>
+        <p>Intentionally break your code and fix it. You'll understand why rules exist.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">📁</span>
+        <strong>One Project</strong>
+        <p>Apply each new topic to the same running project instead of isolated demos.</p>
+      </div>
+      <div class="tip">
+        <span class="tip-icon">🔍</span>
+        <strong>Read Error Msgs</strong>
+        <p>React errors are descriptive. Read them fully before googling — they often tell you exactly what's wrong.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-section">
+    <div class="progress-label">YOUR PROGRESS</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-label" id="progressText">0 / 14 days complete</div>
+    <br>
+    <button onclick="incrementProgress()" style="background: linear-gradient(135deg, #61dafb22, #61dafb11); border: 1px solid rgba(97,218,251,0.3); color: #61dafb; padding: 10px 24px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s;" onmouseover="this.style.background='rgba(97,218,251,0.15)'" onmouseout="this.style.background='linear-gradient(135deg, #61dafb22, #61dafb11)'">
+      ✓ Mark Today Complete
+    </button>
+  </div>
+
+  <footer>
+    Built for <span>JS developers</span> ready to conquer React · 14 days · 60+ topics
+  </footer>
+
+</div>
+
+<script>
+  let days = parseInt(localStorage.getItem('reactDays') || '0');
+  // let days =0;
+  function updateUI() {
+    const bar = document.getElementById('progressBar');
+    const text = document.getElementById('progressText');
+    const pct = (days / 14) * 100;
+    bar.style.width = pct + '%';
+    text.textContent = days + ' / 14 days complete';
+  }
+
+  function incrementProgress() {
+    if (days < 14) {
+      days++;
+      localStorage.setItem('reactDays', days);
+      updateUI();
+    }
+  }
+
+  updateUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+.col-1 {
+  width: 8.3333333333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-2 {
+  width: 16.6666666667%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-3 {
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-4 {
+  width: 33.3333333333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-5 {
+  width: 41.6666666667%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-6 {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-7 {
+  width: 58.3333333333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-8 {
+  width: 66.6666666667%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-9 {
+  width: 75%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-10 {
+  width: 83.3333333333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-11 {
+  width: 91.6666666667%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.col-12 {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+[class^=col-] {
+  background-color: #e9ecef;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 400px;
+}
+.card__header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+}
+.card__body {
+  padding: 20px;
+  background-color: white;
+}
+.card__footer {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.m-1 {
+  margin: 5px;
+}
+
+.p-1 {
+  padding: 5px;
+}
+
+.m-2 {
+  margin: 10px;
+}
+
+.p-2 {
+  padding: 10px;
+}
+
+.m-3 {
+  margin: 15px;
+}
+
+.p-3 {
+  padding: 15px;
+}
+
+.m-4 {
+  margin: 20px;
+}
+
+.p-4 {
+  padding: 20px;
+}
+
+.m-5 {
+  margin: 25px;
+}
+
+.p-5 {
+  padding: 25px;
+}

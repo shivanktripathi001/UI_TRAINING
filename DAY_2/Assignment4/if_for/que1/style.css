@@ -1,0 +1,19 @@
+body {
+  background-color: #333;
+  color: white;
+}
+
+.container {
+  border: 2px solid #ddd;
+}
+
+body {
+  padding: 50px;
+}
+
+.container {
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: auto;
+}/*# sourceMappingURL=style.css.map */

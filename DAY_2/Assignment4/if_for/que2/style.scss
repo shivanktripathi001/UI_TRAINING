@@ -1,0 +1,27 @@
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: (100% / 12) * $i;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+[class^="col-"] {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border: 1px solid white;
+    text-align: center;
+}

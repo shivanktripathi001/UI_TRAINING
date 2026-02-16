@@ -1,0 +1,15 @@
+$i: 1;
+
+@while $i <= 5{
+    .m-#{$i} {
+        margin: 5px * $i;
+    }
+    $i: $i + 1;
+}
+
+.box {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+}
