@@ -1,0 +1,17 @@
+$spacing: (
+    small: 5px,
+    medium: 10px,
+    large: 20px
+);
+
+@each $name, $size in $spacing {
+    .p-#{$name} {
+        padding: $size;
+    }
+}
+
+.box {
+    background-color: #007bff;
+    color: white;
+    margin: 10px 0;
+}

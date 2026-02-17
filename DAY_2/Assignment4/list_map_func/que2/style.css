@@ -1,0 +1,17 @@
+.p-small {
+  padding: 5px;
+}
+
+.p-medium {
+  padding: 10px;
+}
+
+.p-large {
+  padding: 20px;
+}
+
+.box {
+  background-color: #007bff;
+  color: white;
+  margin: 10px 0;
+}/*# sourceMappingURL=style.css.map */

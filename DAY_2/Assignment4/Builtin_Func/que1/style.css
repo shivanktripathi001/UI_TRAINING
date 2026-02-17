@@ -6,22 +6,22 @@
 }
 
 .color-lighter {
-  background-color: #66b0ff;
+  background-color: rgb(102, 175.8, 255);
   color: white;
   padding: 20px;
   margin: 10px;
 }
 
 .color-darker {
-  background-color: #004a99;
+  background-color: rgb(0, 86.1, 178.5);
   color: white;
   padding: 20px;
   margin: 10px;
 }
 
 .color-mixed {
-  background-color: #80bdff;
+  background-color: rgb(127.5, 189, 255);
   color: white;
   padding: 20px;
   margin: 10px;
-}
+}/*# sourceMappingURL=style.css.map */

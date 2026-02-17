@@ -1,0 +1,25 @@
+@mixin add-hover($selector, $hover-color) {
+    #{$selector} {
+        @content;
+        
+        &:hover {
+            background-color: $hover-color;
+        }
+    }
+}
+
+@include add-hover('.btn', #0056b3) {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@include add-hover('.link', #ffc107) {
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}

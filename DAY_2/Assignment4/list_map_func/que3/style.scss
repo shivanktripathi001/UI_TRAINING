@@ -1,0 +1,27 @@
+$themes: (
+    light: (
+        bg: white,
+        text: black
+    ),
+    dark: (
+        bg: black,
+        text: white
+    )
+);
+
+$current-theme: light; // Change to 'dark' to switch theme
+
+body {
+    background-color: map-get(map-get($themes, $current-theme), bg);
+    color: map-get(map-get($themes, $current-theme), text);
+    font-family: Arial, sans-serif;
+    padding: 50px;
+}
+
+.container {
+    padding: 30px;
+    border: 2px solid map-get(map-get($themes, $current-theme), text);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}

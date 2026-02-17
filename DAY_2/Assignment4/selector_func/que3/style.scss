@@ -1,0 +1,16 @@
+$card-selector: '.card';
+$title-selector: '.title';
+
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+// Use selector-nest to combine .card and .title
+#{selector-nest($card-selector, $title-selector)} {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  padding: 50px;
+}
+
+.container {
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}/*# sourceMappingURL=style.css.map */

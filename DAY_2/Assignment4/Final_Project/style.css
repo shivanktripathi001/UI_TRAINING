@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: rgb(0, 98.4, 204);
 }
 
 .btn-secondary {
@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 .btn-secondary:hover {
-  background-color: #545b62;
+  background-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
 }
 
 .btn-success {
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 .btn-success:hover {
-  background-color: #1e7e34;
+  background-color: rgb(30.1449275362, 125.8550724638, 52);
 }
 
 .col-1 {
@@ -177,4 +177,4 @@
 
 .p-5 {
   padding: 25px;
-}
+}/*# sourceMappingURL=style.css.map */

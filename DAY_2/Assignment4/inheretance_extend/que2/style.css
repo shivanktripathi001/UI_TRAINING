@@ -1,4 +1,4 @@
-.card-basic, .card-featured, .card-dark {
+.card-dark, .card-featured, .card-basic {
   padding: 20px;
   margin: 15px;
   border-radius: 10px;
@@ -21,4 +21,4 @@
   background-color: #333;
   color: white;
   border: 1px solid #000;
-}
+}/*# sourceMappingURL=style.css.map */
