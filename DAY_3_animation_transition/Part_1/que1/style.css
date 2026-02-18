@@ -1,0 +1,38 @@
+.btn-scale {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.btn-scale:hover {
+  transform: scale(1.1);
+}
+
+.btn-color {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-color:hover {
+  background-color: #218838;
+}
+
+.btn-slide {
+  background-color: #ffc107;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.btn-slide:hover {
+  transform: translateY(10px);
+}/*# sourceMappingURL=style.css.map */

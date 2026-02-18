@@ -1,0 +1,36 @@
+.navbar {
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    border: 2px solid black;
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #333;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: monospace;
+}
+
+.typing-text {
+  font-size: 44px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #333;
+  width: 0;
+  animation: typing 4s steps(32) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}/*# sourceMappingURL=style.css.map */

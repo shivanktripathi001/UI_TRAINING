@@ -1,0 +1,16 @@
+$transition-speed: 0.3s;
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 300px;
+    margin: 50px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform $transition-speed, box-shadow $transition-speed;
+    
+    &:hover {
+        transform: translateX(-10px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+}

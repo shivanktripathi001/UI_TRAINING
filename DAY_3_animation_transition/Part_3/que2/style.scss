@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$durations: (
+  slow: 2s,
+  normal: 1s,
+  fast: 0.5s
+);
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.box-slow {
+  background-color: #e74c3c;
+  animation: pulse map-get($durations, slow) ease-in-out infinite;
+}
+
+.box-normal {
+  background-color: #3498db;
+  animation: pulse map-get($durations, normal) ease-in-out infinite;
+}
+
+.box-fast {
+  background-color: #2ecc71;
+  animation: pulse map-get($durations, fast) ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
