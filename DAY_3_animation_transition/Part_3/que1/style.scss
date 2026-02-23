@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin animate($name, $duration, $ease, $repeat) {
+  animation: $name $duration $ease $repeat;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: #e74c3c;
+  @include animate(fadeIn, 2s, ease-in, infinite);
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  @include animate(rotate, 3s, linear, infinite);
+}
+
+.box3 {
+  width: 100px;
+  height: 100px;
+  background-color: #2ecc71;
+  @include animate(bounce, 1s, ease-in-out, infinite);
+}
+
+@keyframes fadeIn {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
