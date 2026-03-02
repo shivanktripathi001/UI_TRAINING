@@ -1,0 +1,88 @@
+<!-- {{title}}
+
+
+@if(a>b){
+  {{a}} is grater than {{b}}
+}@else if(b > a){
+   {{a}} is less than {{b}}
+}@else{
+   {{a}} is equal to  {{b}}
+}
+
+
+@for(item of items;track item.id;let i =$index){
+{{i}} {{item.name}}
+} -->
+
+<!-- first,last,even,odd,count -->
+
+
+<!-- switch -->
+<!--  
+
+@switch(grade){
+  @case ('A'){
+    <p>excelent</p>
+  }
+  @case('B'){
+    <p>good</p>
+  }
+  @case('C'){
+    <p>bad</p>
+  }
+  @default{
+    <p>average</p>
+  }
+}
+
+
+<h1>{{title | lowercase}}</h1>
+<h1>{{title | uppercase}}</h1>
+
+
+<div>
+  <p>Default: {{today | date}}</p>
+  <p>Short: {{today | date:'short'}}</p>
+  <p>Medium: {{today | date:'medium'}}</p>
+  <p>Long: {{today | date:'long'}}</p>
+  <p>Full: {{today | date:'full'}}</p>
+  <p>Short Date: {{today | date:'shortDate'}}</p>
+  <p>Medium Date: {{today | date:'mediumDate'}}</p>
+  <p>Long Date: {{today | date:'longDate'}}</p>
+  <p>Full Date: {{today | date:'fullDate'}}</p>
+  <p>Short Time: {{today | date:'shortTime'}}</p>
+  <p>Custom: {{today | date:'dd/MM/yyyy'}}</p>
+  <p>Custom: {{today | date:'MMMM d, y'}}</p>
+  <p>Custom: {{today | date:'h:mm a'}}</p>
+</div>
+
+<h2>Currency Pipe</h2>
+<div>
+  <p>Default: {{price | currency}}</p>
+  <p>USD: {{price | currency:'USD'}}</p>
+  <p>EUR: {{price | currency:'EUR'}}</p>
+  <p>INR: {{price | currency:'INR'}}</p>
+  <p>GBP: {{price | currency:'GBP'}}</p>
+  <p>Symbol: {{price | currency:'USD':'symbol'}}</p>
+  <p>Code: {{price | currency:'USD':'code'}}</p>
+  <p>Custom digits: {{price | currency:'USD':'symbol':'1.2-2'}}</p>
+</div>
+
+<h2>Custom Reverse Pipe</h2>
+<div>
+  <p>Original: {{title}}</p>
+  <p>Reversed: {{title | reverse}}</p>
+</div>
+ -->
+
+ {{data}}
+
+ <h1>
+  Posts
+ </h1>
+
+ <div *ngfor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <p>{{post.body}}</p>
+
+ </div>

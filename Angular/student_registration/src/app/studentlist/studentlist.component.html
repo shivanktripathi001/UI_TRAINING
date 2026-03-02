@@ -1,0 +1,37 @@
+<div class="list-container">
+  <div class="list-card">
+    <h2>Student List</h2>
+    <p class="list-subtitle">All registered students</p>
+    
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{student.sid}}</td>
+            <td>{{student.sname}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.mobileNo}}</td>
+            <td>{{student.email}}</td>
+            <td>
+              <button class="delete-btn" (click)="deleteStudent(student.sid)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div *ngIf="students.length === 0" class="no-data">
+        <p>No students registered yet</p>
+      </div>
+    </div>
+  </div>
+</div>
