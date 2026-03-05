@@ -21,7 +21,7 @@ export class StudentComponent {
       name: this.student.sname,
       email: this.student.email,
       password: this.student.password,
-      role: this.student.role || 'student'
+      role: 'student'
     }).subscribe({
       next: (response) => {
         alert('Registration successful! Please login.');

@@ -34,15 +34,6 @@
         <input type="password" [(ngModel)]="student.password" name="password" placeholder="Enter your password" required minlength="6">
       </div>
       
-      <div class="form-group">
-        <label>Role</label>
-        <select [(ngModel)]="student.role" name="role" required>
-          <option value="student">Student</option>
-          <option value="teacher">Teacher</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
-      
       <button type="submit" class="submit-btn" [disabled]="!studentForm.valid">
         Register Now
       </button>

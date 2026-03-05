@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="form-card">
+    <h2>{{ isEditMode ? 'Update Employee' : 'Register Employee' }}</h2>
+    
+    <div *ngIf="message" class="alert" [class.success]="messageType === 'success'" [class.error]="messageType === 'error'">
+      {{ message }}
+    </div>
+
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" formControlName="firstName" placeholder="Enter first name">
+          <div class="error" *ngIf="f['firstName'].touched && f['firstName'].errors">
+            <span *ngIf="f['firstName'].errors['required']">First name is required</span>
+            <span *ngIf="f['firstName'].errors['minlength']">Minimum 2 characters required</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" formControlName="lastName" placeholder="Enter last name">
+          <div class="error" *ngIf="f['lastName'].touched && f['lastName'].errors">
+            <span *ngIf="f['lastName'].errors['required']">Last name is required</span>
+            <span *ngIf="f['lastName'].errors['minlength']">Minimum 2 characters required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" formControlName="email" placeholder="Enter email">
+          <div class="error" *ngIf="f['email'].touched && f['email'].errors">
+            <span *ngIf="f['email'].errors['required']">Email is required</span>
+            <span *ngIf="f['email'].errors['email']">Invalid email format</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" formControlName="phone" placeholder="Enter 10-digit phone">
+          <div class="error" *ngIf="f['phone'].touched && f['phone'].errors">
+            <span *ngIf="f['phone'].errors['required']">Phone is required</span>
+            <span *ngIf="f['phone'].errors['pattern']">Must be 10 digits</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Salary *</label>
+        <input type="number" formControlName="salary" placeholder="Enter salary">
+        <div class="error" *ngIf="f['salary'].touched && f['salary'].errors">
+          <span *ngIf="f['salary'].errors['required']">Salary is required</span>
+          <span *ngIf="f['salary'].errors['min']">Salary must be positive</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Address *</label>
+        <textarea formControlName="address" rows="3" placeholder="Enter address"></textarea>
+        <div class="error" *ngIf="f['address'].touched && f['address'].errors">
+          <span *ngIf="f['address'].errors['required']">Address is required</span>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-primary" [disabled]="loading">
+          <span *ngIf="loading" class="spinner"></span>
+          {{ isEditMode ? 'Update' : 'Submit' }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="onReset()" [disabled]="loading">
+          Reset
+        </button>
+        <button type="button" class="btn btn-link" routerLink="/employees">
+          View Employees
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

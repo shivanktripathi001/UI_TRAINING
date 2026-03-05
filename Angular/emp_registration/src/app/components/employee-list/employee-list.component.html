@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="header">
+    <h2>Employee List</h2>
+    <button class="btn btn-primary" routerLink="/register">Add New Employee</button>
+  </div>
+
+  <div *ngIf="message" class="alert" [class.success]="messageType === 'success'" [class.error]="messageType === 'error'">
+    {{ message }}
+  </div>
+
+  <div class="search-box">
+    <input 
+      type="text" 
+      [(ngModel)]="searchTerm" 
+      (input)="onSearch()" 
+      placeholder="Search by name or email..."
+      class="search-input">
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <div class="spinner-large"></div>
+    <p>Loading employees...</p>
+  </div>
+
+  <div *ngIf="!loading && filteredEmployees.length === 0" class="no-data">
+    <p>No employees found</p>
+    <button class="btn btn-primary" routerLink="/register">Register First Employee</button>
+  </div>
+
+  <div *ngIf="!loading && filteredEmployees.length > 0" class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Salary</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of filteredEmployees">
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.phone }}</td>
+          <td>₹{{ employee.salary | number }}</td>
+          <td>{{ employee.address }}</td>
+          <td class="actions">
+            <button class="btn-edit" (click)="onEdit(employee)">Edit</button>
+            <button class="btn-delete" (click)="onDelete(employee)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

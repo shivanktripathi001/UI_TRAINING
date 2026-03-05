@@ -15,5 +15,4 @@ export class studentForm {
   mobileNo: number = 0;
   email: string = '';
   password: string = '';
-  role: string = 'student';
 }

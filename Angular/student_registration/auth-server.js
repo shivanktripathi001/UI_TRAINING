@@ -33,7 +33,6 @@ app.get('/', (req, res) => {
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
-    console.log('Register attempt:', { name, email, role });
     
     if (!name || !email || !password) 
       return res.status(400).json({ error: 'All fields required' });
@@ -45,10 +44,8 @@ app.post('/api/auth/register', async (req, res) => {
     await db.query('INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)',
       [name, email, hashedPassword, role || 'student']);
     
-    console.log('User registered successfully');
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
-    console.error('Register error:', err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -57,17 +54,12 @@ app.post('/api/auth/register', async (req, res) => {
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log('Login attempt:', email);
     
     const [users] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
-    console.log('Users found:', users.length);
-    
     if (!users.length) return res.status(401).json({ error: 'Invalid credentials' });
     
     const user = users[0];
     const validPassword = await bcrypt.compare(password, user.password);
-    console.log('Password valid:', validPassword);
-    
     if (!validPassword) return res.status(401).json({ error: 'Invalid credentials' });
     
     const token = jwt.sign(
@@ -78,7 +70,6 @@ app.post('/api/auth/login', async (req, res) => {
     
     res.json({ token, user: { name: user.name, email: user.email, role: user.role } });
   } catch (err) {
-    console.error('Login error:', err);
     res.status(500).json({ error: err.message });
   }
 });
@@ -112,26 +103,6 @@ const isStudent = (req, res, next) => {
     return res.status(403).json({ error: 'Student access required' });
   next();
 };
-
-// Get all users
-app.get('/api/users', auth, isAdmin, async (req, res) => {
-  try {
-    const [users] = await db.query('SELECT id, name, email, role, created_at FROM users');
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// Delete user
-app.delete('/api/users/:id', auth, isAdmin, async (req, res) => {
-  try {
-    await db.query('DELETE FROM users WHERE id = ?', [req.params.id]);
-    res.json({ message: 'User deleted successfully' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
 
 // Protected routes
 app.get('/api/admin', auth, isAdmin, (req, res) => {

@@ -1,0 +1,23 @@
+{
+  "employees": [
+    {
+      "id": "e4f3",
+      "firstName": "shivank",
+      "lastName": "tripathi",
+      "email": "shivanktripathi350@gmail.com",
+      "phone": "6262499928",
+      "salary": 30000,
+      "address": "satna"
+    },
+    {
+      "id": "0d47",
+      "firstName": "riya ",
+      "lastName": "singh",
+      "email": "riya123@gmail.com",
+      "phone": "1234567890",
+      "salary": 12345,
+      "address": "up"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
