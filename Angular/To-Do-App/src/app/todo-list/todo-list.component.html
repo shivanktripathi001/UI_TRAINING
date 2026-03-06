@@ -1,0 +1,38 @@
+<div class="list-container">
+
+  <!-- Stats -->
+  <p class="stats">
+    Total: {{ todoService.totalTodos() }} |
+    Completed: {{ todoService.completedTodos() }}
+  </p>
+
+  <!-- Show this when list is empty -->
+  @if (todoService.todos().length === 0) {
+    <p class="empty-msg">🎉 No todos! You are all done!</p>
+  }
+
+  <!-- Loop through all todos -->
+  @for (todo of todoService.todos(); track todo.id) {
+    <div class="todo-item">
+
+      <!-- Checkbox to mark complete -->
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="todoService.toggleTodo(todo.id)"
+      />
+
+      <!-- Todo text — strikethrough if completed -->
+      <span [class.completed]="todo.completed">
+        {{ todo.text }}
+      </span>
+
+      <!-- Delete button -->
+      <button (click)="todoService.deleteTodo(todo.id)">
+        🗑️ Delete
+      </button>
+
+    </div>
+  }
+
+</div>
